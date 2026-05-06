@@ -1,16 +1,17 @@
 from typing import BinaryIO
 
-import pandas as pd
 import polars as pl
 
 from .df2md import *
 
 
 def convert_xlsx(file_stream: BinaryIO) -> str:
-    sheets = pd.read_excel(file_stream, sheet_name=None)
+    sheets = pl.read_excel(file_stream, sheet_name=None, engine='calamine')
     md = ""
-    for s in sheets:
-        md += f"## {s}\n"
-        df = pl.from_pandas(sheets[s].astype(str))
-        md += _format_dataframe(df)
+    if isinstance(sheets, dict):
+        for s in sheets:
+            md += f"## {s}\n"
+            md += _format_dataframe(sheets[s])
+    else:
+        md = _format_dataframe(sheets)
     return md
