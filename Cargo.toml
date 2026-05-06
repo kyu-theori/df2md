@@ -1,0 +1,15 @@
+[package]
+name = "df2md"
+version = "0.1.0"
+edition = "2024"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+name = "df2md"
+crate-type = ["cdylib"]
+
+[dependencies]
+polars = "0.53"
+pyo3 = "0.27"
+pyo3-polars = { version = "0.26", features = ["derive"] }
+rayon = "1.12"

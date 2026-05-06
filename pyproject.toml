@@ -1,0 +1,19 @@
+[build-system]
+requires = ["maturin>=1.13,<2.0"]
+build-backend = "maturin"
+
+[project]
+name = "df2md"
+requires-python = ">=3.12"
+classifiers = [
+    "Programming Language :: Rust",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+]
+dynamic = ["version"]
+dependencies = [
+    "openpyxl>=3.1.5",
+    "pandas>=2.0.3",
+    "polars>=1.8.2",
+    "pyarrow>=24.0.0",
+]
