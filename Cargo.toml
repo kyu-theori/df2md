@@ -11,5 +11,4 @@ crate-type = ["cdylib"]
 [dependencies]
 polars = "0.53"
 pyo3 = "0.27"
-pyo3-polars = { version = "0.26", features = ["derive"] }
-rayon = "1.12"
+pyo3-polars = "0.26"
