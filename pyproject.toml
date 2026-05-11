@@ -13,7 +13,6 @@ classifiers = [
 dynamic = ["version"]
 dependencies = [
     "fastexcel>=0.20.2",
-    "openpyxl>=3.1.5",
     "polars>=1.8.2",
     "pyarrow>=24.0.0",
 ]
