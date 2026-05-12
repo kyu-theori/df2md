@@ -1,4 +1,5 @@
-from polars import DataFrame
+from typing import BinaryIO
 
-def _format_dataframe(df: DataFrame) -> str: ...
+
+def convert_xlsx(file_stream: BinaryIO) -> str: ...
 
