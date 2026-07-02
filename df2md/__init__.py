@@ -6,7 +6,7 @@ from .df2md import *
 
 
 def convert_xlsx(file_stream: BinaryIO) -> str:
-    sheets = pl.read_excel(file_stream, sheet_id=0, drop_empty_cols=False)
+    sheets = pl.read_excel(file_stream, sheet_id=0, drop_empty_cols=False, raise_if_empty=False)
     md = ""
     if isinstance(sheets, dict):
         for s in sheets:
