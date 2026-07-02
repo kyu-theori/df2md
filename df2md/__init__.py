@@ -10,6 +10,8 @@ def convert_xlsx(file_stream: BinaryIO) -> str:
     md = ""
     if isinstance(sheets, dict):
         for s in sheets:
+            if len(sheets[s]) == 0:
+                continue
             md += f"## {s}\n"
             md += _format_dataframe(sheets[s])
     else:
