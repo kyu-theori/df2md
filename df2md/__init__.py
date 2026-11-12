@@ -17,3 +17,10 @@ def convert_xlsx(file_stream: BinaryIO) -> str:
     else:
         md = _format_dataframe(sheets)
     return md
+
+
+def convert_csv(file_stream: BinaryIO, separator: str = ",") -> str:
+    df = pl.read_csv(file_stream, separator=separator, infer_schema=False, raise_if_empty=False, truncate_ragged_lines=True)
+    if df.shape == (0, 0):
+        return ""
+    return _format_dataframe(df)
